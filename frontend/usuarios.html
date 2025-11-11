@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Usuários</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="app">
+  <aside class="menu">
+    <div class="brand">Estoque Bar</div>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/produtos.html">Produtos</a>
+      <a href="/entradas.html">Entradas</a>
+      <a href="/saidas.html">Saídas</a>
+      <a href="/relatorios.html">Relatórios</a>
+      <a id="cfgLink5" href="/usuarios.html" class="active">Configuração</a>
+    </nav>
+    <button id="logout">Sair</button>
+  </aside>
+
+  <main class="content">
+    <h1>Gerenciar Usuários</h1>
+
+    <div class="form-grid">
+      <input id="nome" placeholder="Nome do Usuário" />
+      <input id="login" placeholder="Login" />
+      <input id="senha" placeholder="Senha" type="password" />
+      <select id="grupo">
+        <option value="1">Admin</option>
+        <option value="2" selected>Usuário</option>
+      </select>
+      <button id="btnAdd" class="btn-primary">Criar Usuário</button>
+    </div>
+
+    <h2>Lista de Usuários</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Login</th>
+            <th>Grupo</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="usersList"></tbody>
+      </table>
+    </div>
+  </main>
+
+<!-- Modal padrão igual às telas de Entradas/Saídas -->
+<div id="modal" class="modal hidden">
+  <div class="modal-content">
+    <h3 id="modalTitle">Editar Usuário</h3>
+    <label for="modal_nome">Nome</label>
+    <input id="modal_nome" placeholder="Nome do Usuário" />
+
+    <label for="modal_login">Login</label>
+    <input id="modal_login" placeholder="Login" />
+
+    <label for="modal_senha">Senha (opcional)</label>
+    <input id="modal_senha" placeholder="Senha (opcional)" type="password" />
+
+    <label for="modal_grupo">Grupo</label>
+    <select id="modal_grupo">
+      <option value="1">Admin</option>
+      <option value="2">Usuário</option>
+    </select>
+
+    <div class="modal-actions">
+      <button id="btnSalvarModal" class="btn-primary">Salvar</button>
+      <button id="btnCancelarModal" class="btn-secondary">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

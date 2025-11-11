@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Produtos</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="app">
+  <aside class="menu">
+    <div class="brand">Estoque Bar</div>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/produtos.html" class="active">Produtos</a>
+      <a href="/entradas.html">Entradas</a>
+      <a href="/saidas.html">Saídas</a>
+      <a href="/relatorios.html">Relatórios</a>
+      <a id="cfgLink2" href="/usuarios.html" style="display:none">Configuração</a>
+    </nav>
+    <button id="logout">Sair</button>
+  </aside>
+
+  <main class="content">
+    <h1>Produtos</h1>
+
+    <div class="produto-actions">
+      <input id="descricao" placeholder="Descrição">
+      <input id="valor" placeholder="Valor" type="number" step="0.01">
+      <input id="quantidade" placeholder="Quantidade" type="number">
+      <button id="btnAdd">Adicionar</button>
+      <button id="btnToggleAtivos">Ver Inativos</button>
+    </div>
+
+    <table id="tblProdutos">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Descrição</th>
+          <th>Valor</th>
+          <th>Qtd</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </main>
+
+  <!-- Modal de Edição -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-content">
+      <h2>Editar Produto</h2>
+      <input id="editDescricao" placeholder="Descrição">
+      <input id="editValor" placeholder="Valor" type="number" step="0.01">
+      <input id="editQuantidade" placeholder="Quantidade" type="number">
+      <div class="modal-actions">
+        <button id="btnSalvarEdicao">Salvar</button>
+        <button id="btnCancelarEdicao">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Login - Estoque</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="center">
+  <div class="card">
+    <h2>Login</h2>
+    <div>
+      <input id="login" placeholder="Login" />
+    </div>
+    <div>
+      <input id="senha" type="password" placeholder="Senha" />
+    </div>
+    <button id="btnLogin">Entrar</button>
+    <div id="msg" class="msg"></div>
+  </div>
+
+<script>
+const api = 'http://192.168.0.8:3000/api';
+
+document.getElementById('btnLogin').addEventListener('click', async () => {
+  const login = document.getElementById('login').value;
+  const senha = document.getElementById('senha').value;
+  const res = await fetch(`${api}/auth/login`, {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify({ login, senha })
+  });
+  const data = await res.json();
+  if (!res.ok) {
+    document.getElementById('msg').innerText = data.message || 'Erro';
+    return;
+  }
+  localStorage.setItem('token', data.token);
+  localStorage.setItem('user', JSON.stringify(data.user));
+  location.href = '/index.html';
+});
+</script>
+</body>
+</html>

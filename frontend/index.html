@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard - Estoque</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="app">
+    <aside class="menu">
+      <div class="brand">Estoque Bar</div>
+      <nav>
+        <a href="/index.html">Home</a>
+        <a href="/produtos.html">Produtos</a>
+        <a href="/entradas.html">Entradas</a>
+        <a href="/saidas.html">Saídas</a>
+        <a href="/relatorios.html">Relatórios</a>
+        <a id="cfgLink" href="/usuarios.html" style="display:none">Configuração</a>
+      </nav>
+      <button id="logout">Sair</button>
+    </aside>
+    <main class="content">
+      <h1 id="tituloMes">Dashboard - </h1>
+      <div class="cards">
+        <div class="card">
+          <h3>Entradas</h3>
+          <p id="entradasVal">R$ 0.00</p>
+        </div>
+        <div class="card">
+          <h3>Saídas</h3>
+          <p id="saidasVal">R$ 0.00</p>
+        </div>
+        <div class="card">
+          <h3>Saldo</h3>
+          <p id="saldoVal">R$ 0.00</p>
+        </div>
+      </div>
+
+      <h2>Últimas Entradas</h2>
+      <div id="ultimasEntradas"></div>
+
+      <h2>Últimas Saídas</h2>
+      <div id="ultimasSaidas"></div>
+    </main>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+  <script>
+    (async () => {
+      await initAuth(); // from app.js
+      await loadDashboard();
+      const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+      const agora = new Date();
+      document.getElementById('tituloMes').innerText = "Dashboard - " + meses[agora.getMonth()] + " de " + agora.getFullYear();
+
+    })();
+  </script>
+</body>
+
+</html>

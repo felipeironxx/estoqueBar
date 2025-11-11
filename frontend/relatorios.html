@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Relatórios</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="app">
+  <aside class="menu">
+    <div class="brand">Estoque Bar</div>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/produtos.html">Produtos</a>
+      <a href="/entradas.html">Entradas</a>
+      <a href="/saidas.html">Saídas</a>
+      <a href="/relatorios.html" class="active">Relatórios</a>
+      <a id="cfgLink6" href="/usuarios.html" style="display:none">Configuração</a>
+    </nav>
+    <button id="logout">Sair</button>
+  </aside>
+
+  <main class="content">
+    <h1>Relatórios</h1>
+
+    <div class="filtros">
+      <label>Tipo:</label>
+      <select id="tipo">
+        <option value="entrada">Entradas</option>
+        <option value="saida">Saídas</option>
+      </select>
+
+      <label>Data inicial:</label>
+      <input type="date" id="inicio">
+
+      <label>Data final:</label>
+      <input type="date" id="fim">
+
+      <button id="buscar">Buscar</button>
+      <button id="exportCsv" class="btn-secundario" style="display:none;">Exportar CSV</button>
+      <button id="exportPdf" class="btn-secundario" style="display:none;">Exportar PDF</button>
+    </div>
+
+    <h2 id="tituloRelatorio"></h2>
+
+    <div class="tabela-container">
+      <table id="tabelaRelatorio" class="tabela-dados">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Nº Nota</th>
+            <th>Valor (R$)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr class="total-linha">
+            <td colspan="2" style="text-align: right;"><strong>Total quantidade:</strong></td>
+            <td id="totalQuantidade"><strong>0</strong></td>
+            <td style="text-align: right;"><strong>Total valor:</strong></td>
+            <td id="totalRelatorio"><strong>R$ 0,00</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </main>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>

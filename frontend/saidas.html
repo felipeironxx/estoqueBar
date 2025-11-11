@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Saídas</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="app">
+  <aside class="menu">
+    <div class="brand">Estoque Bar</div>
+    <nav>
+      <a href="/index.html">Home</a>
+      <a href="/produtos.html">Produtos</a>
+      <a href="/entradas.html">Entradas</a>
+      <a href="/saidas.html" class="active">Saídas</a>
+      <a href="/relatorios.html">Relatórios</a>
+      <a id="cfgLink4" href="/usuarios.html" style="display:none">Configuração</a>
+    </nav>
+    <button id="logout">Sair</button>
+  </aside>
+
+  <main class="content">
+    <h1>Registrar Saída</h1>
+
+    <div class="form-card">
+      <input id="numero_nota" placeholder="Número da Nota (opcional)">
+      <select id="select_prod"></select>
+      <input id="qtd" type="number" placeholder="Quantidade">
+      <input id="valor" type="number" step="0.01" placeholder="Valor unitário">
+      <button id="btnAdd" class="btn-primary">Adicionar Saída</button>
+    </div>
+
+    <h2>Saídas do Mês</h2>
+    <div id="listSaidas"></div>
+  </main>
+
+  <!-- Modal específico para Saídas (usa CSS modal padrão já no style.css) -->
+  <div id="modalSaida" class="modal" style="display:none;">
+    <div class="modal-content">
+      <h3 id="modalSaidaTitle">Editar Saída</h3>
+
+      <label for="modalSaida_numero_nota">Número da Nota</label>
+      <input id="modalSaida_numero_nota" placeholder="Número da Nota (opcional)">
+
+      <label for="modalSaida_select_prod">Produto</label>
+      <select id="modalSaida_select_prod"></select>
+
+      <label for="modalSaida_qtd">Quantidade</label>
+      <input id="modalSaida_qtd" type="number" placeholder="Quantidade">
+
+      <label for="modalSaida_valor">Valor unitário</label>
+      <input id="modalSaida_valor" type="number" step="0.01" placeholder="Valor unitário">
+
+      <div style="margin-top:12px;text-align:right">
+        <button id="modalSaida_cancel" class="btn-secondary">Cancelar</button>
+        <button id="modalSaida_save" class="btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/app.js"></script>
+</body>
+</html>
