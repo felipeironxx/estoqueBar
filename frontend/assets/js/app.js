@@ -157,7 +157,7 @@ if (window.location.pathname.endsWith('/produtos.html')) {
       btn.addEventListener('click', async e => {
         const id = e.target.dataset.id;
         const ativo = Number(e.target.dataset.ativo);
-        await apiFetch(`/produtos/${id}`, 'PUT', { ativo });
+        await apiFetch(`/produtos/${id}/ativo`, 'PATCH', { ativo });
         await loadProdutos();
       })
     );

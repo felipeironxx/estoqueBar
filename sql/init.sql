@@ -49,4 +49,4 @@ CREATE TABLE IF NOT EXISTS saidas (
 INSERT INTO grupos (nome) VALUES ('Admin'),('Usuario');
 
 
--- O usuario padrão de instalação vai ser enviado via seeds no backend, usuario admin e senha admin123.
+-- O usuario padrão de instalação vai ser enviado via post no backend, usuario admin e senha admin123.
