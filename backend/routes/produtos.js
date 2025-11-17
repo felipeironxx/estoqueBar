@@ -4,19 +4,15 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 /**
- * ✅ Lista produtos (ativos ou inativos)
+ *  Lista produtos (ativos ou inativos)
  * Exemplo:
  *   GET /api/produtos?ativos=true   -> mostra ativos (padrão)
  *   GET /api/produtos?ativos=false  -> mostra inativos
  */
 router.get('/', auth, async (req, res) => {
-  const { ativos = 'true' } = req.query;
-  const ativoStatus = ativos === 'true' ? 1 : 0;
-
   try {
     const [rows] = await pool.query(
-      'SELECT id, descricao, valor, quantidade, ativo FROM produtos WHERE ativo = ?',
-      [ativoStatus]
+      'SELECT id, descricao, valor, quantidade, ativo FROM produtos'
     );
     res.json(rows);
   } catch (err) {
@@ -26,7 +22,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 /**
- * ✅ Cria novo produto
+ *  Cria novo produto
  */
 router.post('/', auth, async (req, res) => {
   const { descricao, valor, quantidade } = req.body;
@@ -45,7 +41,7 @@ router.post('/', auth, async (req, res) => {
 });
 
 /**
- * ✅ Atualiza produto (edição geral)
+ * Atualiza produto (edição geral)
  */
 router.put('/:id', auth, async (req, res) => {
   const { id } = req.params;
@@ -71,7 +67,7 @@ router.put('/:id', auth, async (req, res) => {
 });
 
 /**
- * ✅ Ativa ou inativa produto (em vez de deletar)
+ * Ativa ou inativa produto 
  * Envie: { "ativo": 0 } ou { "ativo": 1 }
  */
 router.patch('/:id/ativo', auth, async (req, res) => {

@@ -133,7 +133,7 @@ if (window.location.pathname.endsWith('/produtos.html')) {
     tbody.innerHTML = '';
 
     // Filtra pelo campo "ativo"
-    const filtrados = rows.filter(r => mostrandoAtivos ? r.ativo === 1 : r.ativo === 0);
+    const filtrados = rows.filter(r => mostrandoAtivos ? Number(r.ativo) === 1 : Number(r.ativo) === 0);
 
     filtrados.forEach(r => {
       const tr = document.createElement('tr');

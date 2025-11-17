@@ -16,7 +16,7 @@ const app = express();
 // 🔧 Configuração detalhada do CORS
 app.use(cors({
   origin: '*', // liberar para todos
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: false
 }));
